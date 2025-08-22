@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/brean/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/home/brean/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/home/brean/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/home/brean/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/brean/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
+local package_path_str = "/home/brean/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?.lua;/home/brean/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?/init.lua;/home/brean/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?.lua;/home/brean/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/brean/.cache/nvim/packer_hererocks/2.1.1753364724/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -110,6 +110,12 @@ _G.packer_plugins = {
     path = "/home/brean/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["lazygit.nvim"] = {
+    config = { "\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0" },
+    loaded = true,
+    path = "/home/brean/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/brean/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -146,7 +152,7 @@ _G.packer_plugins = {
   },
   ["nvim-treesitter"] = {
     after = { "nvim-treesitter-context" },
-    config = { "\27LJ\2\nï\2\0\0\4\0\f\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\0025\3\a\0=\3\b\0025\3\t\0=\3\n\0024\3\0\0=\3\v\2B\0\2\1K\0\1\0\fmodules\vindent\1\0\1\venable\2\14highlight\1\0\2&additional_vim_regex_highlighting\1\venable\2\19ignore_install\21ensure_installed\1\0\a\14highlight\0\21ensure_installed\0\19ignore_install\0\17auto_install\2\17sync_install\1\vindent\0\fmodules\0\1\t\0\0\ago\ngomod\ngosum\vgowork\blua\bvim\vvimdoc\nquery\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\nï\2\0\0\4\0\f\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\0025\3\a\0=\3\b\0025\3\t\0=\3\n\0024\3\0\0=\3\v\2B\0\2\1K\0\1\0\fmodules\vindent\1\0\1\venable\2\14highlight\1\0\2&additional_vim_regex_highlighting\1\venable\2\19ignore_install\21ensure_installed\1\0\a\vindent\0\fmodules\0\14highlight\0\21ensure_installed\0\19ignore_install\0\17auto_install\2\17sync_install\1\1\t\0\0\ago\ngomod\ngosum\vgowork\blua\bvim\vvimdoc\nquery\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     only_config = true,
     path = "/home/brean/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -196,22 +202,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: conform.nvim
-time([[Config for conform.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fconform\frequire\0", "config", "conform.nvim")
-time([[Config for conform.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\nË\4\0\0\a\0\18\0\0316\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\2\0005\2\5\0005\3\4\0=\3\6\2B\0\2\0016\0\0\0'\2\a\0B\0\2\0029\1\b\0009\1\2\0015\3\r\0005\4\f\0005\5\n\0005\6\t\0=\6\v\5=\5\b\4=\4\14\3B\1\2\0016\1\15\0009\1\16\1'\3\17\0B\1\2\1K\0\1\0ƒ\2        hi! link @lsp.type.parameter.go Identifier\n        hi! link @lsp.type.function.go Function\n        hi! link @lsp.type.method.go Function\n        hi! link @lsp.type.interface.go Type\n        hi! link @lsp.typemod.variable.global.go Constant\n      \bcmd\bvim\rsettings\1\0\1\rsettings\0\1\0\1\ngopls\0\ranalyses\1\0\2\16staticcheck\2\ranalyses\0\1\0\2\17unusedparams\2\vshadow\2\ngopls\14lspconfig\21ensure_installed\1\0\1\21ensure_installed\0\1\2\0\0\ngopls\20mason-lspconfig\nsetup\nmason\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
 -- Config for: wilder.nvim
 time([[Config for wilder.nvim]], true)
 try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config.wilder\frequire\0", "config", "wilder.nvim")
 time([[Config for wilder.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\nï\2\0\0\4\0\f\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\0025\3\a\0=\3\b\0025\3\t\0=\3\n\0024\3\0\0=\3\v\2B\0\2\1K\0\1\0\fmodules\vindent\1\0\1\venable\2\14highlight\1\0\2&additional_vim_regex_highlighting\1\venable\2\19ignore_install\21ensure_installed\1\0\a\14highlight\0\21ensure_installed\0\19ignore_install\0\17auto_install\2\17sync_install\1\vindent\0\fmodules\0\1\t\0\0\ago\ngomod\ngosum\vgowork\blua\bvim\vvimdoc\nquery\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+try_loadstring("\27LJ\2\nï\2\0\0\4\0\f\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\0025\3\a\0=\3\b\0025\3\t\0=\3\n\0024\3\0\0=\3\v\2B\0\2\1K\0\1\0\fmodules\vindent\1\0\1\venable\2\14highlight\1\0\2&additional_vim_regex_highlighting\1\venable\2\19ignore_install\21ensure_installed\1\0\a\vindent\0\fmodules\0\14highlight\0\21ensure_installed\0\19ignore_install\0\17auto_install\2\17sync_install\1\1\t\0\0\ago\ngomod\ngosum\vgowork\blua\bvim\vvimdoc\nquery\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\nË\4\0\0\a\0\18\0\0316\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\2\0005\2\5\0005\3\4\0=\3\6\2B\0\2\0016\0\0\0'\2\a\0B\0\2\0029\1\b\0009\1\2\0015\3\r\0005\4\f\0005\5\n\0005\6\t\0=\6\v\5=\5\b\4=\4\14\3B\1\2\0016\1\15\0009\1\16\1'\3\17\0B\1\2\1K\0\1\0ƒ\2        hi! link @lsp.type.parameter.go Identifier\n        hi! link @lsp.type.function.go Function\n        hi! link @lsp.type.method.go Function\n        hi! link @lsp.type.interface.go Type\n        hi! link @lsp.typemod.variable.global.go Constant\n      \bcmd\bvim\rsettings\1\0\1\rsettings\0\1\0\1\ngopls\0\ranalyses\1\0\2\16staticcheck\2\ranalyses\0\1\0\2\17unusedparams\2\vshadow\2\ngopls\14lspconfig\21ensure_installed\1\0\1\21ensure_installed\0\1\2\0\0\ngopls\20mason-lspconfig\nsetup\nmason\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: lazygit.nvim
+time([[Config for lazygit.nvim]], true)
+try_loadstring("\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0", "config", "lazygit.nvim")
+time([[Config for lazygit.nvim]], false)
+-- Config for: conform.nvim
+time([[Config for conform.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fconform\frequire\0", "config", "conform.nvim")
+time([[Config for conform.nvim]], false)
 -- Conditional loads
 time([[Conditional loading of telescope-fzf-native.nvim]], true)
   require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)

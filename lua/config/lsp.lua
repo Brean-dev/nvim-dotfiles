@@ -120,3 +120,41 @@ vim.api.nvim_create_user_command("LspScanProject", function()
 		vim.notify("rg not found; cannot brute-force workspace scan", vim.log.levels.WARN)
 	end
 end, { desc = "Populate diagnostics for entire workspace" })
+
+-- Toggle focus between editor and QUICKFIX (diagnostics) window
+local function qf_toggle_focus()
+	local qf = vim.fn.getqflist({ winid = 1 }).winid
+	if qf == 0 then
+		vim.cmd("copen") -- not open? open it
+		qf = vim.fn.getqflist({ winid = 1 }).winid
+	end
+	if vim.api.nvim_get_current_win() == qf then
+		vim.cmd("wincmd p") -- currently in QF -> go back
+	else
+		vim.api.nvim_set_current_win(qf) -- jump into QF
+	end
+end
+vim.keymap.set("n", "<leader>dj", qf_toggle_focus, { desc = "Toggle focus: editor <-> diagnostics (quickfix)" })
+
+-- Optional: same idea for LOCATION LIST (buffer-local diagnostics)
+local function loc_toggle_focus()
+	local lw = vim.fn.getloclist(0, { winid = 1 }).winid
+	if lw == 0 then
+		vim.cmd("lopen")
+		lw = vim.fn.getloclist(0, { winid = 1 }).winid
+	end
+	if vim.api.nvim_get_current_win() == lw then
+		vim.cmd("wincmd p")
+	else
+		vim.api.nvim_set_current_win(lw)
+	end
+end
+vim.keymap.set("n", "<leader>dl", loc_toggle_focus, { desc = "Toggle focus: editor <-> location list" })
+
+-- Handy extras
+vim.keymap.set("n", "<leader>dx", "<cmd>cclose<cr>", { desc = "Close diagnostics (quickfix)" })
+vim.keymap.set("n", "<leader>d]", "<cmd>cnext<cr>", { desc = "Next diagnostic (quickfix)" })
+vim.keymap.set("n", "<leader>d[", "<cmd>cprev<cr>", { desc = "Prev diagnostic (quickfix)" })
+
+-- Generic: swap to previous window (works anywhere)
+vim.keymap.set("n", "<leader><tab>", "<C-w>p", { desc = "Previous window" })
