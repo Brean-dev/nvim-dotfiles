@@ -133,8 +133,8 @@ return require("packer").startup(function(use)
 	})
 
 	-- colorscheme
-	use({ "ellisonleao/gruvbox.nvim" })
-
+	-- use({ "ellisonleao/gruvbox.nvim" })
+	use({ "datsfilipe/min-theme.nvim" })
 	-- wilder (make sure you have lua/config/wilder.lua)
 	use({
 		"gelguy/wilder.nvim",

@@ -12,14 +12,14 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
-
 -- leader key
 vim.g.mapleader = " "
 
 -- load plugins
 require("plugins")
 require("config.telescope")
-require("config.gruv")
+-- require("config.gruv")
+require("config.mintheme")
 
 require("config.diagnostic")
 require("config.format")
