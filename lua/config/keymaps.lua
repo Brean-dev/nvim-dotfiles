@@ -44,3 +44,5 @@ end, { desc = "Diagnostics (workspace)" })
 vim.keymap.set("n", "<leader>gg", function()
 	vim.cmd("LazyGit")
 end, { desc = "Open LazyGit" })
+
+vim.keymap.set("n", "<leader>?", "<cmd>Cheatsheet<CR>", { desc = "Open Cheatsheet" })

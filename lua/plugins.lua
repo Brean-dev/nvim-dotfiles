@@ -51,7 +51,6 @@ return require("packer").startup(function(use)
 	-- Optional: colored bracket pairs
 
 	-- fuzzy finder
-	use({ "nvim-telescope/telescope.nvim" })
 	use({ "romgrk/fzy-lua-native", run = "make" })
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
@@ -155,6 +154,34 @@ return require("packer").startup(function(use)
 		},
 		config = function()
 			require("telescope").load_extension("lazygit")
+		end,
+	})
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("telescope").setup({})
+		end,
+	})
+	use({
+		"Brean-dev/cheatsheet.nvim",
+		requires = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/popup.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("cheatsheet").setup({
+				bundled_cheatsheets = true,
+				bundled_plugin_cheatsheets = true,
+				include_only_installed_plugins = true,
+				telescope_mappings = {
+					["<CR>"] = require("cheatsheet.telescope.actions").select_or_fill_commandline,
+					["<A-CR>"] = require("cheatsheet.telescope.actions").select_or_execute,
+					["<C-Y>"] = require("cheatsheet.telescope.actions").copy_cheat_value,
+					["<C-E>"] = require("cheatsheet.telescope.actions").edit_user_cheatsheet,
+				},
+			})
 		end,
 	})
 end)
