@@ -190,4 +190,10 @@ return require("packer").startup(function(use)
 			require("Comment").setup()
 		end,
 	})
+	use({
+		"LuxVim/nvim-luxmotion",
+		config = function()
+			require("luxmotion").setup()
+		end,
+	})
 end)
