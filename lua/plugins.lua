@@ -196,4 +196,10 @@ return require("packer").startup(function(use)
 			require("luxmotion").setup()
 		end,
 	})
+	use({
+		"y3owk1n/undo-glow.nvim",
+		config = function()
+			require("config.undo_glow")
+		end,
+	})
 end)
